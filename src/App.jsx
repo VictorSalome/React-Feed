@@ -5,6 +5,46 @@ import { Post } from "./components/Post/Post";
 import "./global.css";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://github.com/victorSalome.png",
+      name: "Victor Salome",
+      role: "Web developer",
+    },
+    content: [
+      { type: "paragraph", content: "Fala galeraa 👋" },
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀.",
+      },
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publishedAt: new Date("2024-02-22 11:00:00"),
+  },
+
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/victorSalome.png",
+      name: "Pedro Hope",
+      role: "Senior developer",
+    },
+    content: [
+      { type: "paragraph", content: "Fala galeraa 👋" },
+      {
+        type: "paragraph",
+        content:
+          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀.",
+      },
+      { type: "link", content: "jane.design/doctorcare" },
+    ],
+    publishedAt: new Date("2024-02-24 12:00:00"),
+  },
+];
+
 function App() {
   return (
     <div>
@@ -13,11 +53,15 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Victor Salome"
-            content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime itaque quas corporis beatae veritatis, reprehenderit asperiores vitae quod possimus qui dignissimos unde deleniti consequatur quae, repellat debitis sunt, est rerum!"
-          />
-          <Post author="Gabriel Buzzi" content="Um novo post muito legal" />
+          {posts.map((post) => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
