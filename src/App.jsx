@@ -28,7 +28,7 @@ const posts = [
   {
     id: 2,
     author: {
-      avatarUrl: "https://github.com/victorSalome.png",
+      avatarUrl: "https://github.com/pedrohhope.png",
       name: "Pedro Hope",
       role: "Senior developer",
     },
@@ -41,7 +41,7 @@ const posts = [
       },
       { type: "link", content: "jane.design/doctorcare" },
     ],
-    publishedAt: new Date("2024-02-24 12:00:00"),
+    publishedAt: new Date("2024-02-22 08:00:00"),
   },
 ];
 
@@ -56,6 +56,7 @@ function App() {
           {posts.map((post) => {
             return (
               <Post
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
